@@ -36,14 +36,15 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
+    <div ng-click="hideDiv = !hideDiv">
+        <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">All Apps</a></div>
       </nav>
     </div>
   </header>
-  <div id="form" ng-controller="FormController" >
+
+
+  <div id="form" ng-controller="FormController" ng-show="!hideDiv">
+
   <form>
   <div id="outreach" class="mdl-textfield mdl-js-textfield">
     
@@ -88,7 +89,7 @@
   </div>
   </form>
 </div>
-  <div class="search-one" ng-controller="FormController" class="mdl-textfield mdl-js-textfield">
+  <div class="search-one" ng-controller="FormController" class="mdl-textfield mdl-js-textfield" ng-hide="!showDiv">
      <form>
        <h1>Get One Job</h1>
        <input id="field"  type="text" placeholder='Search Company' ng-model="searchText">
@@ -105,7 +106,7 @@
          </ol>
      </form>
    </div>
-    <div id="positions" ng-controller="FormController">
+    <div id="positions" ng-controller="FormController" ng-hide="!showDiv">
       <form>
         <h1>Get Results real quick</h1>
         <button ng-click="getJobData()">Get</button>

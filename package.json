@@ -2,9 +2,12 @@
   "name": "apptrack",
   "version": "1.0.0",
   "description": "This is an application to help Hack Reactor grads track jobs for the job search process.",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node server/server.js",
+    "nodemon": "nodemon server/server.js",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -14,7 +17,7 @@
     "job",
     "search"
   ],
-  "author": "Mattie Lents, Narmine Shahin, Timothy Yin, Chris Stair",
+  "author": "Mattie Lents, Narmin Shahin, Timothy Yin, Chris Stair",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ooOysters/AppTrack/issues"
@@ -22,15 +25,36 @@
   "homepage": "https://github.com/ooOysters/AppTrack#readme",
   "dependencies": {
     "angular": "^1.5.9",
+    "angular-route": "^1.5.9",
+    "angular-ui-bootstrap": "^2.3.1",
+    "angular-ui-mask": "^1.8.7",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "dirname": "^0.1.0",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "http-server": "^0.9.0",
+    "jwt-simple": "^0.5.1",
+    "lodash": "^4.17.2",
     "mongodb": "^2.2.12",
     "mongoose": "^4.7.1",
-    "node": "0.0.0",
+    "multer": "^1.2.0",
+    "nodemailer": "^2.7.0",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "q": "^1.4.1",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }

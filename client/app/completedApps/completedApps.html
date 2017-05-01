@@ -1,0 +1,106 @@
+<!-- COMPLETED APPLICATION VIEW using FormController, Display depends on ng-show showDiv -->
+<div class="col-md-8 col-md-offset-2">
+
+  <!-- COMPLETED APPLICATION VIEW title -->
+  <div class="page-header"><h2>Completed Applications</h2></div>
+
+  <!-- Application Search -->
+  <form name='searchAllApps'>
+    <!-- <label for ="searchAllApps">Search Open Applications</label> -->
+    <div class = "form-group">
+
+      <!-- Input Field / Search Bar  -->
+      <input
+        type='text',
+        name='searchAllAppsQuery',
+        ng-model='searchText',
+        class="form-control",
+        placeholder='Search Open Applications...'
+        />
+
+    </div> <!-- Closing input-group -->
+  </form> <!-- Closing from group -->
+
+  <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
+  <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application' id='body-font'>
+    <div class="row">
+
+      <!-- 1) Open Position Card, has 5 fields -->
+      <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
+      <li id="card" style="overflow:scroll">
+        <div><h3>Application</h3></div>
+        <div><span>{{result.dateApplied.slice(0,10)}}</span></div>
+
+        <!-- i) COMPANY -->
+        <div ng-click="enableEditor($index)"><strong>Company:</strong><br>
+          <span ng-hide="edit[$index].editorEnabled">{{result.companyName}}</span>
+        </div>
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].companyName" class="form-control" type="text">
+        </div>
+
+        <!-- ii) POSITION -->
+        <div ng-click="enableEditor($index)"><strong>Position:</strong><br>
+          <span ng-hide="edit[$index].editorEnabled">{{result.role}}</span>
+        </div>
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].role" class="form-control" type="text">
+        </div>
+
+        <!-- iii) APPLIED THROUGH -->
+        <div ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
+          <span ng-hide="edit[$index].editorEnabled">{{result.appliedThrough}}</span>
+        </div>
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].appliedThrough" class="form-control" type="text">
+        </div>
+
+        <!-- iv) CONTACT NAME -->
+        <div ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
+          <span ng-hide="edit[$index].editorEnabled">{{result.contactName}}</span>
+        </div>
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].contactName" class="form-control" type="text">
+        </div>
+
+        <!-- v) CONTACT EMAIL -->
+        <div ng-click="enableEditor($index)"><strong>Contact Email:</strong><br>
+          <span ng-hide="edit[$index].editorEnabled">{{result.contactEmail}}</span>
+        </div>
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].contactEmail" class="form-control" type="text">
+        </div>
+
+        <!-- vi) CONTACT PHONE -->
+        <div ng-click="enableEditor($index)"><strong>Contact Phone:</strong><br>
+          <span ng-hide="edit[$index].editorEnabled">{{result.contactPhone}}</span>
+        </div>
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].contactPhone" class="form-control" type="text">
+        </div>
+
+        <!-- Save Button -->
+        <button class='btn btn-info' id='btn-info' ng-click="save($index, edit[$index])" ng-show="edit[$index].editorEnabled">Save</button>
+
+      </li><!-- Closing Open Position Card -->
+
+      <!-- 2) Add Stage Card -->
+      <!-- has STAGE TYPE drop down menu, DATE, Primary Interview, Follow up date, Reply Received -->
+
+      <!-- Displays Stage Data -->
+      <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
+        <div><h3>Stage {{$index + 1}}</h3></div>
+        <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
+        <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate.slice(0,10)}}</div>
+        <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
+        <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp.slice(0,10)}}</div>
+        <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
+      </div>
+    </div><!-- Closing row -->
+    <br>
+    <div class='btn-group'>
+      <button class='btn btn-primary'ng-click='delete($index)'>Delete This Application</button>
+    </div>
+    <hr>
+  </ul> <!-- closing ng-repeat Application -->
+</div> <!-- Closing ALL APPLICATION VIEW-->

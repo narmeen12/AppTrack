@@ -1,0 +1,148 @@
+h1, h2, h3 {
+   text-align: center;
+}
+
+input {
+  height: 20px;
+}
+
+.navbar-brand {
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.page-header h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+// Overwriting Bootstrap btn default colors //
+
+#navbar-fixed-top {
+  background-color: #232323;
+}
+
+#btn-info {
+  background-color: #7cc5dd;
+  border-style: none;
+}
+
+#btn-primary {
+  background-color: #6076a3;
+  border-style: none;
+}
+
+#card {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b7b7b7;
+  border-radius: 5px;
+  width: 300px;
+  height: 450px;
+  margin: 20px 20px 0 20px;
+  float: left;
+  display: inline-block;
+  line-break: auto;
+  padding: 15px;
+  font-size: medium;
+  overflow: hidden;
+  background-color: #edeff4;
+}
+
+.add-stage {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b7b7b7;
+  border-radius: 5px;
+  font-size: medium;
+  width: 300px;
+  height: 450px;
+  margin: 20px 20px 0 20px;
+  float: left;
+  display: block;
+  padding: 15px;
+  background-color: #d8e9ff;
+}
+
+#list-item {
+    width: 90%;
+    height:600px;
+    display:inline-block;
+    margin-top: 30px;
+    overflow: scroll;
+}
+
+#stage-name {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b7b7b7;
+  border-radius: 5px;
+  width: 300px;
+  height: 450px;
+  font-size: large;
+  background-color: #edfaff;
+  margin: 20px 20px 0 20px;
+  position: relative;
+  float: left;
+  display: block;
+  padding: 15px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin-heading {
+  margin-bottom: 30px;
+}
+.form-signin,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.auth {
+  margin-top: 100px;
+}
+
+ul {
+  padding-left: 0;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="at">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800|Source+Sans+Pro:400,600" rel="stylesheet">
+
+    <title>AppTrak</title>
+    <base href="/" />
+
+    <!-- MATERIAL IO SCRIPTS BELOW -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="./styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <!-- Definining Angular app -->
+  <body>
+
+    <!-- GLOBAL NAV BAR FIXED TOP -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <!-- CONTAINER for NAV BAR -->
+      <div class="container">
+
+        <!-- NAV BAR TITLE -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/#!/allApps">App|Trak</a>
+        </div>
+
+        <!-- NAV BAR -->
+        <div id="navbar" class="navbar-collapse collapse" uib-collapse="navCollapsed">
+
+          <div ng-controller="AuthController">
+            <!-- NAV BAR LEFT -->
+            <ul class="nav navbar-nav">
+              <li ng-hide='!isAuth()'><a href="/#!/allApps">All Apps <span class="sr-only">(current)</span></a></li>
+              <li ng-hide='!isAuth()'><a href="/#!/completedApps">Completed Apps</a></li>
+              <li ng-hide='!isAuth()'><a href="/#!/addApps">Add App</a></li>
+            </ul>
+
+          <!-- NAV BAR RIGHT -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/#!/signup" class="mdl-navigation__link" ng-hide='isAuth()'>Sign Up</a></li>
+              <li><a href="/#!/login" class="mdl-navigation__link" ng-hide='isAuth()'>Log In</a></li>
+              <li><a href="/#!/myaccount" class="mdl-navigation__link" ng-hide='!isAuth()'>Welcome {{ username }}!</a></li>
+              <li><a href="/#!/login" class="mdl-navigation__link" ng-click="signout()" ng-hide='!isAuth()'>Log Out</a></li>
+            </ul>
+
+          </div> <!-- Closing AuthController -->
+        </div><!--/.nav-collapse -->
+      </div> <!-- Closing NAV BAR container -->
+    </nav> <!-- CLOSING GLOBAL NAV BAR FIXED TOP -->
+
+
+    <!--  CONTAINER for NG-VIEW components -->
+    <div class="container-fluid">
+      <br />
+      <br />
+      <div class="rows" id='ng-view' ng-view></div>
+
+    </div> <!-- Closing CONTAINER for NG-VIEW components -->
+
+    <br /><br />
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="angular-ui-mask/dist/mask.js"></script>
+    <script src="app.js"></script>
+    <script src="/allApps/allAppsController.js"></script>
+    <script src="/addApps/addAppsController.js"></script>
+    <script src="/completedApps/completedAppsController.js"></script>
+    <script src="/account/accountController.js"></script>
+    <script src="/services/services.js"></script>
+    <script src="/login/auth.js"></script>
+  </body>
+</html>
